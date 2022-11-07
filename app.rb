@@ -1,12 +1,9 @@
-require_relative './teacher'
-require_relative './book'
-require_relative './rental'
-require_relative './classroom'
+require './book'
 require_relative './student'
+require_relative './teacher'
+require_relative './rental'
 
 class App
-  attr_reader :books, :people, :rentals
-
   def initialize
     @books = []
     @people = []
@@ -17,19 +14,52 @@ class App
     prompt_user
   end
 
-  def quit_app
-    puts 'Thank you for using this app! Exiting...'
-    exit
+  def prompt_user
+    menu
+    choice = gets.chomp.to_i
+    choice == 7 ? quit_app : option_case(choice)
+    prompt_user
   end
 
-  # Person: Student /Teacher
-  def list_all_people
-    if @people.empty?
-      puts 'The people list is empty, add some people...'
+  def option_case(choice)
+    case choice
+    when 1
+      list_all_books
+    when 2
+      list_all_people
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals_by_id
     else
-      puts "People's list:\n\n"
-      @people.each_with_index do |person, index|
-        puts "#{index + 1}) Type: #{person.type}, Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "\n Incorrect choice, choose a number between 1..7"
+    end
+  end
+
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    book = Book.new(title, author)
+    @books << book unless @books.include?(book)
+
+    puts "The book '#{title}' by #{author} was created successfully! "
+  end
+
+  def list_all_books
+    if @books.empty?
+      puts 'The book list is empty, add some books... '
+    else
+      puts "Books list :\n\n"
+      @books.each_with_index do |book, index|
+        puts "#{index + 1}) Title: '#{book.title}', Author: #{book.author}"
       end
     end
   end
@@ -82,6 +112,17 @@ class App
     puts "The teacher '#{name}' aged '#{age}' with specialization in '#{specialization}' was created successfully!"
   end
 
+  def list_all_people
+    if @people.empty?
+      puts 'The people list is empty, add some people...'
+    else
+      puts "People's list:\n\n"
+      @people.each_with_index do |person, index|
+        puts "#{index + 1}) Type: #{person.type}, Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
+    end
+  end
+
   def permission?
     print 'Has parent permission? [Y/N]:'
     permission = gets.chomp
@@ -94,49 +135,6 @@ class App
     else
       puts 'Incorrect choice, kindly enter \'y\', \'Y\' or \'n\', \'N\' '
       permission?
-    end
-  end
-
-  # Books
-  def list_all_books
-    if @books.empty?
-      puts 'The book list is empty, add some books... '
-    else
-      puts "Books list :\n\n"
-      @books.each_with_index do |book, index|
-        puts "#{index + 1}) Title: '#{book.title}', Author: #{book.author}"
-      end
-    end
-  end
-
-  def create_book
-    print 'Title: '
-    title = gets.chomp
-
-    print 'Author: '
-    author = gets.chomp
-
-    book = Book.new(title, author)
-    @books << book unless @books.include?(book)
-
-    puts "The book '#{title}' by #{author} was created successfully! "
-  end
-
-  # Rentals
-  def list_rentals_by_id
-    print "Enter a person's ID: "
-    person_id = gets.chomp.to_i
-    if !@people.find { |person| person.id == person_id }
-      puts "No rental found with ID: #{person_id} "
-    elsif @rentals.empty?
-      puts 'The rental list is empty, add some rentals...'
-    else
-      puts "Rentals list :\n\n"
-      @rentals.select do |rental|
-        if rental.person.id == person_id
-          puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-        end
-      end
     end
   end
 
@@ -158,5 +156,22 @@ class App
     @rentals << rental unless @rentals.include?(rental)
 
     puts 'Rental successfully created! '
+  end
+
+  def list_rentals_by_id
+    print "Enter a person's ID: "
+    person_id = gets.chomp.to_i
+    if !@people.find { |person| person.id == person_id }
+      puts "No rental found with ID: #{person_id} "
+    elsif @rentals.empty?
+      puts 'The rental list is empty, add some rentals...'
+    else
+      puts "Rentals list :\n\n"
+      @rentals.select do |rental|
+        if rental.person.id == person_id
+          puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+        end
+      end
+    end
   end
 end
