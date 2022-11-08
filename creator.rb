@@ -40,15 +40,21 @@ class Creator
     end
   end
 
-  def register_student
+  def age_name
     print 'Age: '
     age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    [name, age]
+  end
+
+  def register_student
+    variables = age_name
+    name = variables[0]
+    age = variables[1]
 
     print 'Classroom: (B121, A233..) '
     classroom = gets.chomp
-
-    print 'Name: '
-    name = gets.chomp
 
     has_permission = @permissions.permission?
 
@@ -59,14 +65,12 @@ class Creator
   end
 
   def register_teacher
-    print 'Age: '
-    age = gets.chomp.to_i
+    variables = age_name
+    name = variables[0]
+    age = variables[1]
 
     print 'Specialization: '
     specialization = gets.chomp
-
-    print 'Name: '
-    name = gets.chomp
 
     teacher = Teacher.new(specialization, age, name: name)
     @people << teacher unless @people.include?(teacher)
