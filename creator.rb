@@ -3,12 +3,14 @@ require_relative './student'
 require_relative './teacher'
 require_relative './rental'
 require_relative 'permissions'
+require_relative 'data'
 class Creator
+  include Data
   attr_accessor :people, :books, :rentals
 
   def initialize
-    @people = []
-    @books = []
+    @people = load_people
+    @books = load_books
     @rentals = []
     @permissions = Permissions.new
   end
@@ -44,7 +46,7 @@ class Creator
     print 'Age: '
     age = gets.chomp.to_i
     print 'Name: '
-    name = gets.chomp
+    name = gets.chomp.to_s
     [name, age]
   end
 
@@ -58,7 +60,8 @@ class Creator
 
     has_permission = @permissions.permission?
 
-    student = Student.new(classroom, age, name: name, parent_permission: has_permission)
+    student = Student.new(classroom, age, name, parent_permission: has_permission)
+
     @people << student unless @people.include?(student)
 
     puts "The student '#{name}' aged '#{age}' with the classroom '#{classroom}' was created successfully!"
@@ -72,7 +75,7 @@ class Creator
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(specialization, age, name: name)
+    teacher = Teacher.new(specialization, age, name)
     @people << teacher unless @people.include?(teacher)
 
     puts "The teacher '#{name}' aged '#{age}' with specialization in '#{specialization}' was created successfully!"

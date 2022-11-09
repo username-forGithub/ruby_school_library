@@ -1,5 +1,9 @@
 require_relative 'creator'
+require_relative 'data'
+
 class App
+  include Data
+
   def initialize
     @creator = Creator.new
   end
@@ -13,6 +17,13 @@ class App
     choice = gets.chomp.to_i
     choice == 7 ? quit_app : option_case(choice)
     prompt_user
+  end
+
+  def quit_app
+    puts 'Thank you for using this app! Exiting...'
+    write_data(@creator.people, @creator.books)
+    puts 'Have a great time...'
+    exit
   end
 
   def option_case(choice)

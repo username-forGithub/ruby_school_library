@@ -14,11 +14,6 @@ def menu
   puts options
 end
 
-def quit_app
-  puts 'Thank you for using this app! Exiting...'
-  exit
-end
-
 def main
   puts "\n Welcome to School Library App! \n"
   app = App.new

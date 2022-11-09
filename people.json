@@ -1,0 +1,18 @@
+[
+  {
+    "json_class" : "Student",
+    "age" : 12,
+    "name" : "habib",
+    "parent_permission" : true,
+    "type" : "Student",
+    "classroom" : "B121"
+  },
+  {
+    "json_class" : "Teacher",
+    "name" : "jjjj",
+    "age" : 12,
+    "specialization" : "dskla",
+    "parent_permission" : true,
+    "type" : "Teacher"
+  }
+]
