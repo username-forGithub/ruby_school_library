@@ -11,7 +11,7 @@ class Creator
   def initialize
     @people = load_people
     @books = load_books
-    @rentals = []
+    @rentals = load_rentals(self )
     @permissions = Permissions.new
   end
 
@@ -83,12 +83,12 @@ class Creator
 
   def create_rental
     print "Select a book from the following list by number:\n"
-    list_all_books
+    list_all_books(@books)
     prompt_user if @books.empty?
     book_index = gets.chomp.to_i - 1
 
     print "Select a person from the following list by number:\n"
-    list_all_people
+    list_all_people(@people)
     prompt_user if @people.empty?
     person_index = gets.chomp.to_i - 1
 

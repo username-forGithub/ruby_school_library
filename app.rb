@@ -21,7 +21,7 @@ class App
 
   def quit_app
     puts 'Thank you for using this app! Exiting...'
-    write_data(@creator.people, @creator.books)
+    write_data(@creator.people, @creator.books, @creator.rentals)
     puts 'Have a great time...'
     exit
   end
@@ -29,9 +29,9 @@ class App
   def option_case(choice)
     case choice
     when 1
-      list_all_books
+      list_all_books(@creator.books)
     when 2
-      list_all_people
+      list_all_people(@creator.people)
     when 3
       @creator.create_person
     when 4
@@ -42,28 +42,6 @@ class App
       list_rentals_by_id
     else
       puts "\n Incorrect choice, choose a number between 1..7"
-    end
-  end
-
-  def list_all_books
-    if @creator.books.empty?
-      puts 'The book list is empty, add some books... '
-    else
-      puts "Books list :\n\n"
-      @creator.books.each_with_index do |book, index|
-        puts "#{index + 1}) Title: '#{book.title}', Author: #{book.author}"
-      end
-    end
-  end
-
-  def list_all_people
-    if @creator.people.empty?
-      puts 'The people list is empty, add some people...'
-    else
-      puts "People's list:\n\n"
-      @creator.people.each_with_index do |person, index|
-        puts "#{index + 1}) Type: #{person.type}, Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
     end
   end
 
@@ -78,7 +56,7 @@ class App
       puts "Rentals list :\n\n"
       @creator.rentals.select do |rental|
         if rental.person.id == person_id
-          puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
+          puts "Date: #{rental.date}, Book: '#{rental.book.title}' rented by #{rental.person.name}"
         end
       end
     end

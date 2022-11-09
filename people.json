@@ -5,14 +5,7 @@
     "name" : "habib",
     "parent_permission" : true,
     "type" : "Student",
-    "classroom" : "B121"
-  },
-  {
-    "json_class" : "Teacher",
-    "name" : "jjjj",
-    "age" : 12,
-    "specialization" : "dskla",
-    "parent_permission" : true,
-    "type" : "Teacher"
+    "classroom" : "B121",
+    "id" : 822
   }
 ]

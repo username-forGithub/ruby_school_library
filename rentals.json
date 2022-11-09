@@ -1,0 +1,17 @@
+[
+  {
+    "json_class" : "Rental",
+    "date" : "2022/11/9",
+    "book" : {
+      "json_class" : "Book",
+      "title" : "jjj",
+      "author" : "sdf"
+    },
+    "person" : {
+      "json_class" : "Student",
+      "name" : "habib",
+      "age" : 12,
+      "id" : 822
+    }
+  }
+]
