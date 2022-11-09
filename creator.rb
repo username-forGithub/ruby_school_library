@@ -11,7 +11,7 @@ class Creator
   def initialize
     @people = load_people
     @books = load_books
-    @rentals = load_rentals(self )
+    @rentals = load_rentals(self)
     @permissions = Permissions.new
   end
 
