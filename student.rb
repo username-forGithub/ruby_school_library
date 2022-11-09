@@ -3,10 +3,22 @@ require_relative './person'
 class Student < Person
   attr_reader :classroom, :type
 
-  def initialize(classroom, age, name: 'Unknown', parent_permission: true, type: 'Student')
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(classroom, age, name, parent_permission: true, id: Random.rand(1..1000))
+    super(age, name: name, parent_permission: parent_permission, id: id)
     @classroom = classroom
-    @type = type
+    @type = 'Student'
+  end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      :age => @age,
+      :name => @name,
+      :parent_permission => @parent_permission,
+      :type => @type,
+      :classroom => @classroom,
+      :id => @id
+    }.to_json(*args)
   end
 
   def classroom=(classroom)

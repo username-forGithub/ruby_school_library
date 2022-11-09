@@ -1,0 +1,12 @@
+[
+  {
+    "json_class" : "Book",
+    "title" : "jjj",
+    "author" : "sdf"
+  },
+  {
+    "json_class" : "Book",
+    "title" : "jjjj",
+    "author" : "habib"
+  }
+]
