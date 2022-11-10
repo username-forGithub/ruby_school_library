@@ -4,7 +4,7 @@ require_relative '../student'
 describe Classroom do
   before :each do
     @classroom = Classroom.new('CS50')
-    @student = Student.new('B', 23, name: 'John')
+    @student = Student.new('B', 23, 'John')
   end
   context 'When creating a new Classroom class' do
     it 'should have a label property' do

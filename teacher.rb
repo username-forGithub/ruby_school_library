@@ -3,10 +3,10 @@ require './person'
 class Teacher < Person
   attr_reader :specialization, :type
 
-  def initialize(specialization, age, name: 'Unknown', parent_permission: true, type: 'Teacher')
+  def initialize(specialization, age, name: 'Unknown', parent_permission: true, id: Random.rand(1..1000))
     super(age, name: name, parent_permission: parent_permission, id: id)
     @specialization = specialization
-    @type = type
+    @type = 'Teacher'
   end
 
   def to_json(*args)
