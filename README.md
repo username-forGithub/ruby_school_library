@@ -10,6 +10,10 @@ This project is a school library developed to record what books are in the libra
 A basic understanding of Ruby and Git
 
 ### Usage
+ruby main.rb
+
+### Run tests
+rspec
 
 👤 **Bakhtiyor Yusubaliyev**
 - GitHub: [@bakhtiyorY](https://github.com/githubhandle)
