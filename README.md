@@ -15,6 +15,11 @@ A basic understanding of Ruby and Git
 - GitHub: [@bakhtiyorY](https://github.com/githubhandle)
 - Twitter: [@bakhtiyor-yusubali](https://twitter.com/twitterhandle)
 
+👤 **Habib Payenda**
+- GitHub: [@HabibPayenda](https://github.com/HabibPayenda)
+- Twitter: [@Habib-Payenda](https://twitter.com/HabibPayenda)
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
