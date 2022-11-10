@@ -1,4 +1,5 @@
 require_relative '../teacher'
+require_relative 'spec_helper'
 
 describe Teacher do
   before :each do
