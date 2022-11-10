@@ -4,7 +4,7 @@ class Teacher < Person
   attr_reader :specialization, :type
 
   def initialize(specialization, age, name: 'Unknown', parent_permission: true, type: 'Teacher')
-    super(age, name: name, parent_permission: parent_permission)
+    super(age, name: name, parent_permission: parent_permission, id: id)
     @specialization = specialization
     @type = type
   end
