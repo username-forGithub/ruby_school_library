@@ -10,16 +10,25 @@ This project is a school library developed to record what books are in the libra
 A basic understanding of Ruby and Git
 
 ### Usage
+ruby main.rb
+
+### Run tests
+rspec
 
 👤 **Bakhtiyor Yusubaliyev**
 - GitHub: [@bakhtiyorY](https://github.com/githubhandle)
 - Twitter: [@bakhtiyor-yusubali](https://twitter.com/twitterhandle)
 
+👤 **Habib Payenda**
+- GitHub: [@HabibPayenda](https://github.com/HabibPayenda)
+- Twitter: [@Habib-Payenda](https://twitter.com/HabibPayenda)
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rtonata88/decode-morse-code/issues).
+Feel free to check the [issues page](https://github.com/username-forGithub/ruby_school_library/issues).
 
 ## Show your support
 

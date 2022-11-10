@@ -3,8 +3,8 @@ require './person'
 class Teacher < Person
   attr_reader :specialization, :type
 
-  def initialize(specialization, age, name, parent_permission: true, type: 'Teacher')
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(specialization, age, name: 'Unknown', parent_permission: true, type: 'Teacher')
+    super(age, name: name, parent_permission: parent_permission, id: Random.rand(1..1000))
     @specialization = specialization
     @type = type
   end
