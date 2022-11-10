@@ -24,7 +24,7 @@ A basic understanding of Ruby and Git
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rtonata88/decode-morse-code/issues).
+Feel free to check the [issues page](https://github.com/username-forGithub/ruby_school_library/issues).
 
 ## Show your support
 
